@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo '🔧 Compilation du projet...'
-                sh 'mvn clean package'
+                sh 'mvn clean install'  // Utilisation de install pour éviter des problèmes avec les dépendances
             }
         }
 
@@ -29,6 +29,7 @@ pipeline {
                 script {
                     def jarFile = sh(script: "ls target/*.jar", returnStdout: true).trim()
                     if (jarFile) {
+                        echo "📦 Fichier trouvé : ${jarFile}"
                         sh "java -jar ${jarFile}"
                     } else {
                         error "🚨 Aucun fichier .jar trouvé dans le dossier target/"
