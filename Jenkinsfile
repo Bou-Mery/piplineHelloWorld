@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo '📥 Clonage du dépôt...'
-                git branch: 'master', url: 'https://github.com/Bou-Mery/helloWorldPipeline.git'
+                git branch: 'master', url: 'https://github.com/Bou-Mery/piplineHelloWorld.git'
             }
         }
 
