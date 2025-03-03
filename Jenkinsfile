@@ -12,14 +12,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo '🔧 Compilation du projet...'
-                sh 'mvn clean package'
+                sh 'mvnw clean package'
             }
         }
 
         stage('Test') {
             steps {
                 echo '🧪 Exécution des tests...'
-                sh 'mvn test'
+                sh 'mvnw test'
             }
         }
 
